@@ -1,0 +1,6 @@
+PAXtourny
+Tournament Software (specifically for gaming/eSports and PAX)
+
+This is an in-development tournament software to make running tournaments much easier.
+
+To install, simply drop the tournament folder in your new Django project directory and add 'tournament' to INSTALLED_APPS in settings.py
