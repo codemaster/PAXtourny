@@ -4,7 +4,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Andrew Kane', 'andrew@andrewmkane.com')
 )
 
 MANAGERS = ADMINS
@@ -12,11 +12,11 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'C:\\Users\\Codemaster\\Documents\\Programming\\PAXtourny\\sqlite.db',                      # Or path to database file if using sqlite3.
-        'USER': 'tourny',                      # Not used with sqlite3.
-        'PASSWORD': 'derp',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'NAME': './db/sqlite.db',               # Or path to database file if using sqlite3.
+        'USER': '',                             # Not used with sqlite3.
+        'PASSWORD': '',                         # Not used with sqlite3.
+        'HOST': '',                             # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                             # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -116,9 +116,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+     'django.contrib.admindocs',
+     'tournament'
 )
 
 # A sample logging configuration. The only tangible logging
