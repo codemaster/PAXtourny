@@ -1,0 +1,12 @@
+{% extends "boilerplate.html" %}
+{% block content %}
+	{% if tournaments %}
+	<ul>
+		{% for tournament in tournaments %}
+			<li><a href="/tournament/{{ tournament.id }}">{{ tournament.name }}</a></li>
+		{% endfor %}
+	</ul>
+	{% else %}
+	<p>There are currently no scheduled tournaments</p>
+	{% endif %}
+{% endblock content %}
