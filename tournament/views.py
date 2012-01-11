@@ -1,19 +1,17 @@
 from tournament.models import Tournament, Player, Team, Match
-from django.template import Context, loader
-from django.http import HttpResponse
+from django.http import Http404, HttpResponse
+from django.shortcuts import render_to_response, get_object_or_404
 
 def index(request):
-    all_tournaments = Tournament.objects.all().order_by('name')
-    t = loader.get_template('main.html')
-    c = Context({
-        'tournaments' : all_tournaments
-    })
-    return HttpResponse(t.render(c))
-    #output = '<ul>' + ''.join(['<li>' + t.name + '</li>' for t in all_tournaments]) + '</ul>'
-    #return HttpResponse(output)
+    try:
+        tournaments = Tournament.objects.all().order_by('name')
+    except Tournament.DoesNotExist:
+        raise Http404
+    return render_to_response('main.html', {'tournaments' : tournaments})
 
 def tournament(request, tournament_id):
-    return HttpResponse("This will return all of the information about the " + tournament_id + " tournament")
+    t = get_object_or_404(Tournament, pk = tournament_id)
+    return render_to_response('tournament.html', {'tournament':t})
 
 def players(request):
     return HttpResponse("This will list all the players in the tournaments")
