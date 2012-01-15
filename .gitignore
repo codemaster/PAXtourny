@@ -13,7 +13,7 @@ parts
 project/media/uploads
 tmp
 /PAXtourny/db/sqlite.db
-__init__.py
-manage.py
-settings.py
-urls.py
+/__init__.py
+/manage.py
+/settings.py
+/urls.py

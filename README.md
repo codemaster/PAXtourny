@@ -9,3 +9,4 @@ Installation
 1. Drop the tournament folder in your new Django project directory
 2. Add 'tournament' to `INSTALLED_APPS` in settings.py
 3. Add the absolute directory of the extracted tournament folder to the `TEMPLATE_DIRS` configuration array
+4. Add `(r'', include('tournament.urls')),` to the end of the urlpatterns array in your urls.py (or a similar regex)
