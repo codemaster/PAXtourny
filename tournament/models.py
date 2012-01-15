@@ -28,7 +28,7 @@ class Match(models.Model):
     tournament = models.ForeignKey(Tournament, verbose_name="The tournament that this match belongs to")
     child = models.ForeignKey("Match", verbose_name="The optional child match", blank=True, null=True)
     teams = models.ManyToManyField(Team, verbose_name="The teams that are in this match")
-    winner = models.ForeignKey(Team, verbose_name="The team that won",related_name='wining_team')
+    winner = models.ForeignKey(Team, verbose_name="The team that won",related_name='wining_team',blank=True,null=True)
     round_num = models.PositiveSmallIntegerField(default=1)
     
     def __unicode__(self):
