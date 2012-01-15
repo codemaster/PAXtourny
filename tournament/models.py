@@ -19,6 +19,7 @@ class Player(models.Model):
 class Team(models.Model):
     name = models.CharField("The name of the teams", max_length=255)
     members = models.ManyToManyField(Player, verbose_name="The players on the team")
+    tournaments = models.ManyToManyField(Tournament, verbose_name="The tournaments that this team has signed up for", null=True)
     
     def __unicode__(self):
         return self.name
@@ -27,6 +28,8 @@ class Match(models.Model):
     tournament = models.ForeignKey(Tournament, verbose_name="The tournament that this match belongs to")
     parent = models.ForeignKey("Match", verbose_name="The optional parent match", blank=True, null=True)
     teams = models.ManyToManyField(Team, verbose_name="The teams that are in this match")
+    when = models.DateTimeField("When the match is due to start", null=True)
+    winner = models.ForeignKey(Team, verbose_name="The team that won",related_name='wining_team')
     
     def __unicode__(self):
         return " vs ".join([team.name for team in self.teams.all()])
